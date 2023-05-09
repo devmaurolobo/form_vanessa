@@ -2,15 +2,18 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const DragDropFieldContainer = styled.div`
-  width: 150px;
-  height: 150px;
-  border: 2px solid black;
+  width: 30vw;
+  height: 20vh;
+  border: 2px solid blue;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: white;
   cursor: pointer;
   border-radius: 30px;
+  opacity: 50%;
+  max-width: 250px;
 `;
 
 const DragDropFieldText = styled.p`
