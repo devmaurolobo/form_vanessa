@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { Higher, Title, Description, Form, Form2,Com,Seletores,FileInputLabel,FileInputWrapper,CustomFileInput, Box_main, Description_2, Anexo, Select,Dados, Field, Botoes, Photo, StyledInput, Rodape, Botao, Des, SocialIcon, SocialContainer, SocialLink } from './Styles';
 import DragDropField from './DragDropField.jsx';
-import logo from './logo.png';
+import logo from './images/logo.png';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -42,7 +42,7 @@ function App() {
     <>
       <Higher>
         <Title>Certificado Digital</Title>
-        <Photo src={logo} alt="Imagem Exemplo" />
+        <Photo  src={logo} alt="Logo" />
       </Higher>
 
       <Box_main>
@@ -71,7 +71,7 @@ function App() {
                     <FileInputLabel>Selecione o arquivo</FileInputLabel>
                     </FileInputWrapper>
                   <Botao type="button" onClick={handleUploadFile} disabled={!selectedFile}>
-                    Enviar
+                    Upload
                   </Botao>
                 </Botoes>
               </Field>
@@ -106,7 +106,7 @@ function App() {
        <Com onClick={() => setShowForm2(!showForm2)}>Adicionar destinatarios</Com>
       </Seletores>
       <Rodape>
-        <Des>Desenvolvido por Mauro Lobo</Des>
+        <Des>Razão Social xxxxx</Des>
         <SocialContainer>
           <SocialLink href="https://mail.google.com/mail/u/0/?hl=pt-BR" target="_blank">
             <SocialIcon src="/public/img/email.jpg" alt="E-mail" />
