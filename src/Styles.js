@@ -6,7 +6,7 @@ export const Higher = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-around;
-    background-color: #0000CD;
+    background-color: #F5F5F5;
     height: 15vh;   
     width: 100%;
 `;
@@ -78,10 +78,61 @@ export const Seletores = styled.div`
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    background-color: #F0FFF0; 
+    background-color: #E2E2E2; 
     padding-top: 20px;
     padding-bottom: 20px;
 
+`;
+
+export const Tela = styled.div`
+   display: flex;
+   flex-direction: inline block;
+
+`;
+
+export const Menu_esquerdo = styled.div`
+   display: flex;
+   flex-direction: column;
+   width: 80vw;
+   height: 100vh;
+   background-color: #808080;
+
+`;
+export const Teladados = styled.div`
+   display: flex;
+   text-align: center;
+   flex-direction: column;
+   justify-content: center;
+   width: 100vw;
+   margin-left: 400;
+   height: 100vh;
+   background-color: #808080;
+`;
+
+export const Documento = styled.div`
+    display: flex;
+    align-items: center;
+   width: 100vw;
+   padding-left: 400;
+   height: 100vh;
+   justify-content: space-between;
+   flex-direction: wrap;
+   background-color: #808080;
+`;
+
+export const Blocos = styled.div`
+   width: 50 px;
+   height: 50px;
+   background-color: white;
+`;
+
+export const Menu_direito = styled.div`
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   width: 80vw;
+   height: 100vh;
+   background-color: #C0C0C0;
 `;
 
 export const Description_2= styled.h1`
@@ -163,9 +214,9 @@ export const Box_main = styled.div`
     height: 50vh; 
     padding-bottom: 20px;
     padding-top: 20px;
-    width: 100vw;
+    width: 80vw;
     padding-left: -80px;
-    background-color: #F0FFF0;
+    background-color: #E2E2E2;
     padding-right: -80px;
     align-items: center;
 `;
@@ -204,7 +255,7 @@ export const Rodape = styled.footer`
     height: 30vh;  
     justify-content: center;
     width: 100%;
-    background-color: #0000CD;
+    background-color: #F5F5F5;
   
 `;
 

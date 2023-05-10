@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { createGlobalStyle } from 'styled-components';
-import { Higher, Description, Form,Login,Inputmenu, Form2,Textura, Com,Seletores,FileInputLabel,Menu, FileInputWrapper,CustomFileInput, Box_main, Description_2, Anexo, Select,Dados, Field, Botoes, Photo, StyledInput, Rodape, Botao, Des, SocialIcon, SocialContainer, SocialLink } from './Styles';
+import { Higher, Description, Form, Login, Inputmenu,Tela,Blocos, Menu_esquerdo,Menu_direito,Teladados,Documento, Form2, Textura, Com, Seletores, FileInputLabel, Menu, FileInputWrapper, CustomFileInput, Box_main, Description_2, Anexo, Select, Dados, Field, Botoes, Photo, StyledInput, Rodape, Botao, Des, SocialIcon, SocialContainer, SocialLink } from './Styles';
 import DragDropField from './DragDropField.jsx';
+{/*import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Menupag from './Menu2.jsx';*/}
 import logo from './logo.png';
 import menuIcon from './menu.jpg';
 import pdf from './pdf.jpg';
-import whatsap from './whatsap.jpg';
-import instagram from './instagram.jpg';
 import email from './email.jpg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -18,6 +18,8 @@ const GlobalStyle = createGlobalStyle`
 
 function App() {
   const [count, setCount] = useState(0);
+  const [showDados, setShowDados] = useState(false);
+  const [showDocumentos, setShowDocumentos] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null);
   const [selectedFilesList, setSelectedFilesList] = useState([]);
   const [showForm, setShowForm] = useState(false);
@@ -26,11 +28,21 @@ function App() {
   const [name, setName] = useState('');
   const [emailmenu, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  
 
   const handleFileDrop = (files) => {
     setSelectedFile(files[0]);
   };
+
+  const handleShowDados = () => {
+    setShowDados(!showDados);
+    setShowDocumentos(false);
+  };
+
+  const handleShowDocumentos = () => {
+    setShowDocumentos(!showDocumentos);
+    setShowDados(false);
+  };
+
 
   const handleChooseFile = (event) => {
     setSelectedFile(event.target.files[0]);
@@ -41,7 +53,7 @@ function App() {
     if (selectedFile) {
       setSelectedFilesList([...selectedFilesList, selectedFile]); // Adiciona o arquivo selecionado à lista
       // Lógica de envio do arquivo aqui
-    } 
+    }
   };
 
   useEffect(() => {
@@ -64,7 +76,13 @@ function App() {
   
 
   return (
-    <>
+      <>
+  {/*<BrowserRouter>
+      <Switch>
+        <Route exact path="/Menu2" component={Menupag} />
+      </Switch>
+    </BrowserRouter>*/}
+
      {showMenu && (
       <Login>
         <Textura></Textura>
@@ -94,88 +112,108 @@ function App() {
         </Inputmenu>
       </Login>
     )}
+
+{showDados && (
+        <Teladados>
+          <p>Name</p>
+          <p>Data</p>
+          <p>Endereço</p>
+        </Teladados>
+      )}
+
+    {showDocumentos && (
+      
+        <Documento>
+          <Blocos>Documento 1</Blocos>
+          <Blocos>Documento 2</Blocos>
+          <Blocos>Documento 3</Blocos>
+          <Blocos>Documento 4</Blocos>
+        </Documento>
+     
+      )}
+    <Tela>
+      <Menu_direito>
+        <button onClick={handleShowDados}>Mostrar Dados</button>
+        <button onClick={handleShowDocumentos}>Meus Documentos</button>
+      </Menu_direito>
+      
+      <Menu_esquerdo>
+        <Higher>
+          <Photo src={logo} alt="Imagem Exemplo" />
+          <Menu id="menu-icon" src={menuIcon} alt="Menu" onClick={() => setShowMenu(!showMenu)} />
+
+        </Higher>
+
+        <Box_main>
+          <div>
+          {showForm && (
+            <>
+              <Form data-aos="fade-up" data-aos-duration="1">
+                <Description>Comentarios</Description>
+                <Select placeholder="Nome" />
+                <Select placeholder="CPF" />
+                <Select placeholder="RG" />
+                <Select placeholder="Telefone" />
+                <Select placeholder="Endereço" />
+                <Select placeholder="Email" />
+              </Form>  </>
+          )}
+          </div> 
+          <div>
+            <Anexo id="uploadForm" encType="multipart/form-data" data-aos="fade-up" data-aos-duration="3000">
+                <Description_2>Arquivo</Description_2>
+                <Field>
+                  <DragDropField onFileDrop={handleFileDrop} selectedFile={selectedFile}/>
+                  <Botoes>
+                  <FileInputWrapper>
+                      <CustomFileInput type="file" onChange={handleChooseFile} accept=".pdf" />
+                      <FileInputLabel>Selecione o arquivo</FileInputLabel>
+                      </FileInputWrapper>
+                    <Botao type="button" onClick={handleUploadFile} disabled={!selectedFile}>
+                    Upload
+                    </Botao>
+                  </Botoes>
+                </Field>
+                <div>
+                  {selectedFilesList.map((file, index) => (
+                    <div key={index}>
+                      <p>{file.name}</p>
+                      {file.type === 'application/pdf' ? (
+                        <img src={pdf} alt="Ícone do arquivo PDF" />
+                      ) : (
+                        <img src="caminho-do-icone-padrao.png" alt="Ícone do arquivo" />
+                      )}
+                    </div>
+                  ))}
+                </div>
+          </Anexo>
+
+          </div>
+          <div>             
+          {showForm2 && (
+            <>
+              <Form2 data-aos="fade-up" data-aos-duration="1">
+                <Description>Dados envio</Description>
+                <Select placeholder="Nome" />
+                <Select placeholder="Email" />
+              </Form2></>
+          )}
+          </div> 
+        </Box_main>
+        <Seletores>
+        <Dados onClick={() => setShowForm(!showForm)}>Adicionar dados</Dados>
+        <Com onClick={() => setShowForm2(!showForm2)}>Adicionar destinatarios</Com>
+        </Seletores>
+        <Rodape>
+          <Des>Razão Social xxxxxx</Des>
+        </Rodape>
+      </Menu_esquerdo>
+    </Tela>
+
     
-      <Higher>
-        <Photo src={logo} alt="Imagem Exemplo" />
-        <Menu id="menu-icon"src={menuIcon} alt="Menu"onClick={() => setShowMenu(!showMenu)}
-    />
-      </Higher>
 
-      <Box_main>
-        <div>
-        {showForm && (
-          <>
-            <Form data-aos="fade-up" data-aos-duration="3000">
-              <Description>Comentarios</Description>
-              <Select placeholder="Nome" />
-              <Select placeholder="CPF" />
-              <Select placeholder="RG" />
-              <Select placeholder="Telefone" />
-              <Select placeholder="Endereço" />
-              <Select placeholder="Email" />
-            </Form>  </>
-        )}
-        </div> 
-        <div>
-          <Anexo id="uploadForm" encType="multipart/form-data" data-aos="fade-up" data-aos-duration="3000">
-              <Description_2>Arquivo</Description_2>
-              <Field>
-                <DragDropField onFileDrop={handleFileDrop} selectedFile={selectedFile}/>
-                <Botoes>
-                <FileInputWrapper>
-                    <CustomFileInput type="file" onChange={handleChooseFile} accept=".pdf" />
-                    <FileInputLabel>Selecione o arquivo</FileInputLabel>
-                    </FileInputWrapper>
-                  <Botao type="button" onClick={handleUploadFile} disabled={!selectedFile}>
-                   Upload
-                  </Botao>
-                </Botoes>
-              </Field>
-              <div>
-                {selectedFilesList.map((file, index) => (
-                  <div key={index}>
-                    <p>{file.name}</p>
-                    {file.type === 'application/pdf' ? (
-                      <img src={pdf} alt="Ícone do arquivo PDF" />
-                    ) : (
-                      <img src="caminho-do-icone-padrao.png" alt="Ícone do arquivo" />
-                    )}
-                  </div>
-                ))}
-              </div>
-        </Anexo>
-
-        </div>
-        <div>             
-        {showForm2 && (
-          <>
-            <Form2 data-aos="fade-up" data-aos-duration="3000">
-              <Description>Dados envio</Description>
-              <Select placeholder="Nome" />
-              <Select placeholder="Email" />
-            </Form2></>
-        )}
-        </div> 
-      </Box_main>
-      <Seletores>
-       <Dados onClick={() => setShowForm(!showForm)}>Adicionar dados</Dados>
-       <Com onClick={() => setShowForm2(!showForm2)}>Adicionar destinatarios</Com>
-      </Seletores>
-      <Rodape>
-        <Des>Razão Social xxxxxx</Des>
-        <SocialContainer>
-          <SocialLink href="https://mail.google.com/mail/u/0/?hl=pt-BR" target="_blank">
-            <SocialIcon src={email} alt="E-mail" />
-          </SocialLink>
-          <SocialLink href="https://wa.me/5519994149901?text=Olá,%20Obrigado%20pelo%20contato!" target="_blank">
-            <SocialIcon src={whatsap} alt="WhatsApp" />
-          </SocialLink>
-          <SocialLink href="https://www.instagram.com/" target="_blank">
-            <SocialIcon src={instagram} alt="Instagram" />
-          </SocialLink>
-        </SocialContainer>
-      </Rodape>
     </>
-    );
-  }
+  );
+}
+  
 export default App;
