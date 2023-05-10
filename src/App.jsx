@@ -3,6 +3,10 @@ import { createGlobalStyle } from 'styled-components';
 import { Higher, Title, Description, Form, Form2,Com,Seletores,FileInputLabel,FileInputWrapper,CustomFileInput, Box_main, Description_2, Anexo, Select,Dados, Field, Botoes, Photo, StyledInput, Rodape, Botao, Des, SocialIcon, SocialContainer, SocialLink } from './Styles';
 import DragDropField from './DragDropField.jsx';
 import logo from './logo.png';
+import pdf from './pdf.jpg';
+import whatsap from './whatsap.jpg';
+import instagram from './instagram.jpg';
+import email from './email.jpg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -80,7 +84,7 @@ function App() {
                   <div key={index}>
                     <p>{file.name}</p>
                     {file.type === 'application/pdf' ? (
-                      <img src="./public/img/pdf.jpg" alt="Ícone do arquivo PDF" />
+                      <img src={pdf} alt="Ícone do arquivo PDF" />
                     ) : (
                       <img src="caminho-do-icone-padrao.png" alt="Ícone do arquivo" />
                     )}
@@ -109,13 +113,13 @@ function App() {
         <Des>Desenvolvido por Mauro Lobo</Des>
         <SocialContainer>
           <SocialLink href="https://mail.google.com/mail/u/0/?hl=pt-BR" target="_blank">
-            <SocialIcon src="/public/img/email.jpg" alt="E-mail" />
+            <SocialIcon src={email} alt="E-mail" />
           </SocialLink>
           <SocialLink href="https://wa.me/5519994149901?text=Olá,%20Obrigado%20pelo%20contato!" target="_blank">
-            <SocialIcon src="/public/img/wp.png" alt="WhatsApp" />
+            <SocialIcon src={whatsap} alt="WhatsApp" />
           </SocialLink>
           <SocialLink href="https://www.instagram.com/" target="_blank">
-            <SocialIcon src="/public/img/instagram.jpg" alt="Instagram" />
+            <SocialIcon src={instagram} alt="Instagram" />
           </SocialLink>
         </SocialContainer>
       </Rodape>

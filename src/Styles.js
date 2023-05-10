@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import fundo from './fundo.jpg';
 
 
 export const Higher = styled.div`
@@ -38,7 +39,7 @@ export const Seletores = styled.div`
     align-items: center;
     justify-content: space-evenly;
     width: 100vw;
-    background-image: url("../public/img/fundo.jpg");
+    background-image: url(${fundo});
 
 `;
 
@@ -118,7 +119,7 @@ export const Box_main = styled.div`
     padding-top: 20px;
     width: 100vw;
     padding-left: -30px;
-    background-image: url("../public/img/fundo.jpg");
+    background-image: url(${fundo});
     padding-right: -30px;
 `;
 
