@@ -2,26 +2,25 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const DragDropFieldContainer = styled.div`
-  width: 30vw;
-  height: 20vh;
-  border: 2px solid blue;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+   border: 2px dashed #ccc;
+  padding: 20px;
+  text-align: center;
   background-color: white;
-  cursor: pointer;
-  border-radius: 30px;
-  opacity: 50%;
-  max-width: 250px;
+  width: 50%;
+  border-radius: 20px;
 `;
 
 const DragDropFieldText = styled.p`
-  color: #888;
-  font-size: 16px;
+  /* Resto do seu código */
 `;
 
-const DragDropField = ({ onFileDrop }) => {
+const SelectedFileImage = styled.img`
+  width: 40px;
+  height: 40px;
+  /* Adicione outros estilos desejados */
+`;
+
+const DragDropField = ({ onFileDrop, selectedFile }) => {
   const [isDragOver, setIsDragOver] = useState(false);
 
   const handleDragOver = (event) => {
@@ -49,9 +48,16 @@ const DragDropField = ({ onFileDrop }) => {
       onDrop={handleDrop}
       isDragOver={isDragOver}
     >
-      <DragDropFieldText>
-      {isDragOver ? 'Solte o arquivo aqui' : 'Arraste e solte o arquivo aqui'}
-      </DragDropFieldText>
+      {selectedFile ? (
+        <>
+          <SelectedFileImage src="./public/img/pdf.jpg" alt="Ícone do arquivo PDF" />
+          <DragDropFieldText>{selectedFile.name}</DragDropFieldText>
+        </>
+      ) : (
+        <DragDropFieldText>
+          {isDragOver ? 'Solte o arquivo aqui' : 'Arraste e solte o arquivo aqui'}
+        </DragDropFieldText>
+      )}
     </DragDropFieldContainer>
   );
 };
