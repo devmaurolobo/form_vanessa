@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { createGlobalStyle } from 'styled-components';
-import { Higher, Title, Description, Form, Form2,Com,Seletores,FileInputLabel,FileInputWrapper,CustomFileInput, Box_main, Description_2, Anexo, Select,Dados, Field, Botoes, Photo, StyledInput, Rodape, Botao, Des, SocialIcon, SocialContainer, SocialLink } from './Styles';
+import { Higher, Description, Form,Login,Inputmenu, Form2,Textura, Com,Seletores,FileInputLabel,Menu, FileInputWrapper,CustomFileInput, Box_main, Description_2, Anexo, Select,Dados, Field, Botoes, Photo, StyledInput, Rodape, Botao, Des, SocialIcon, SocialContainer, SocialLink } from './Styles';
 import DragDropField from './DragDropField.jsx';
 import logo from './logo.png';
+import menuIcon from './menu.jpg';
 import pdf from './pdf.jpg';
 import whatsap from './whatsap.jpg';
 import instagram from './instagram.jpg';
@@ -21,6 +22,11 @@ function App() {
   const [selectedFilesList, setSelectedFilesList] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [showForm2, setShowForm2] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
+  const [name, setName] = useState('');
+  const [emailmenu, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  
 
   const handleFileDrop = (files) => {
     setSelectedFile(files[0]);
@@ -42,11 +48,57 @@ function App() {
     AOS.init();
   }, []);
 
+  useEffect(() => {
+    const handleDocumentClick = (event) => {
+      if (event.target.id !== 'menu-icon' && showMenu) {
+        setShowMenu(false);
+      }
+    };
+  
+    document.addEventListener('click', handleDocumentClick);
+  
+    return () => {
+      document.removeEventListener('click', handleDocumentClick);
+    };
+  }, [showMenu]);
+  
+
   return (
     <>
+     {showMenu && (
+      <Login>
+        <Textura></Textura>
+        <Inputmenu>
+          <input
+            type="text"
+            placeholder="Nome"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+
+          <input
+            type="email"
+            placeholder="Email"
+            value={emailmenu}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+
+          <input
+            type="password"
+            placeholder="Senha"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+       
+           <button onClick={() => console.log('Enviar')}>Enviar</button>
+        </Inputmenu>
+      </Login>
+    )}
+    
       <Higher>
-        <Title>Certificado Digital</Title>
         <Photo src={logo} alt="Imagem Exemplo" />
+        <Menu id="menu-icon"src={menuIcon} alt="Menu"onClick={() => setShowMenu(!showMenu)}
+    />
       </Higher>
 
       <Box_main>

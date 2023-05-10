@@ -6,10 +6,32 @@ export const Higher = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-around;
-    background-color: #808080;
+    background-color: #0000CD;
     height: 15vh;   
     width: 100%;
 `;
+
+export const Login = styled.div`
+    display: flex;
+    flex-direction: column; 
+    background-color: #B0E0E6;
+    align-items: center;
+    width: 100vw;
+    justify-content: space-evenly;
+    height: 100vh;
+`;
+
+export const Inputmenu = styled.div`
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    width: 200px;
+    justify-content: space-evenly;
+    height: 200px;
+    background-color: white;
+`;
+
+
 export const Dados = styled.button`
    border-radius: 10px;
     width: 130px;
@@ -39,7 +61,16 @@ export const Description = styled.h1`
 `;
 export const Photo = styled.img`
     width: 100px;
-    margin-left: 20%;
+    margin-right: 20%;
+`;
+
+export const Menu = styled.img`
+    width: 40px;
+    margin-left: 5%;
+`;
+
+export const Textura = styled.div`
+     background-image: url(${fundo});
 `;
 
 export const Seletores = styled.div`
@@ -47,7 +78,7 @@ export const Seletores = styled.div`
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    background-image: url(${fundo});
+    background-color: #F0FFF0; 
     padding-top: 20px;
     padding-bottom: 20px;
 
@@ -134,7 +165,7 @@ export const Box_main = styled.div`
     padding-top: 20px;
     width: 100vw;
     padding-left: -80px;
-    background-image: url(${fundo});
+    background-color: #F0FFF0;
     padding-right: -80px;
     align-items: center;
 `;
@@ -169,11 +200,11 @@ export const Rodape = styled.footer`
     display:flex;
     flex-direction: column;
     align-items: center;
-    background-color: #FFFFFF;
+  
     height: 30vh;  
     justify-content: center;
     width: 100%;
-    background-color: #808080;
+    background-color: #0000CD;
   
 `;
 
