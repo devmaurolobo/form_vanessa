@@ -75,7 +75,7 @@ function App() {
                     <FileInputLabel>Selecione o arquivo</FileInputLabel>
                     </FileInputWrapper>
                   <Botao type="button" onClick={handleUploadFile} disabled={!selectedFile}>
-                    Enviar
+                   Upload
                   </Botao>
                 </Botoes>
               </Field>
@@ -110,7 +110,7 @@ function App() {
        <Com onClick={() => setShowForm2(!showForm2)}>Adicionar destinatarios</Com>
       </Seletores>
       <Rodape>
-        <Des>Desenvolvido por Mauro Lobo</Des>
+        <Des>Razão Social xxxxxx</Des>
         <SocialContainer>
           <SocialLink href="https://mail.google.com/mail/u/0/?hl=pt-BR" target="_blank">
             <SocialIcon src={email} alt="E-mail" />

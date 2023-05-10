@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import pdf from './pdf.jpg';
 import styled from 'styled-components';
 
 const DragDropFieldContainer = styled.div`
@@ -50,7 +51,7 @@ const DragDropField = ({ onFileDrop, selectedFile }) => {
     >
       {selectedFile ? (
         <>
-          <SelectedFileImage src="./public/img/pdf.jpg" alt="Ícone do arquivo PDF" />
+          <SelectedFileImage src= {pdf} alt="Ícone do arquivo PDF" />
           <DragDropFieldText>{selectedFile.name}</DragDropFieldText>
         </>
       ) : (

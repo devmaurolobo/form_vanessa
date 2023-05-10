@@ -11,15 +11,23 @@ export const Higher = styled.div`
     width: 100%;
 `;
 export const Dados = styled.button`
-    border-radius: 10px;
-    width: 80px;
-    margin-right: 150px;
+   border-radius: 10px;
+    width: 130px;
+    height: 35px;
+    background-color: #4682B4;
+    font-weight: 400;
+    margin-left: 150px;
+   
 `;
 
 export const Com = styled.button`
     border-radius: 10px;
-    width: 80px;
-    margin-left: 150px;
+    width: 130px;
+    height: 35px;
+    background-color: #4682B4;
+    font-weight: 400;
+    margin-right: 150px;
+    
 `;
 export const Title = styled.h1`
     font-size: 150%;
@@ -35,11 +43,13 @@ export const Photo = styled.img`
 `;
 
 export const Seletores = styled.div`
-    display:flex;
+    display: flex;
     align-items: center;
-    justify-content: space-evenly;
-    width: 100vw;
+    justify-content: space-between;
+    width: 100%;
     background-image: url(${fundo});
+    padding-top: 20px;
+    padding-bottom: 20px;
 
 `;
 
@@ -52,6 +62,7 @@ export const Select = styled.input`
     margin-bottom: 10px;
     width: 50%;
     height: 15px;
+    color:red;
 `;
 
 export const Form = styled.form`
@@ -64,6 +75,7 @@ export const Form = styled.form`
     width: 20vw;
     max-width: 300px;
     justify-content: space-evenly;
+    padding-bottom: 20px;
 `;
 
 export const Form2 = styled.form`
@@ -77,6 +89,7 @@ export const Form2 = styled.form`
     max-width: 300px;
     justify-content: space-evenly;
     position: right;
+    padding-bottom: 20px;
 `;
 export const Field = styled.div`
     display: flex;
@@ -97,7 +110,7 @@ export const Anexo = styled.form`
     border-radius: 40px;
     border: 2px solid #4682B4;
     width: 20vw;
-    height: 500;
+    height: 300px;
    
 `;
 
@@ -105,9 +118,11 @@ export const StyledInput = styled.input`
     text-decoration: none;
     border-radius: 5px;
     width: 60%;
+    border-radius: 5px;
+    width: 80px;
     background-color: #4682B4;
     font-weight: 400;
-    margin-bottom: 5px;
+    margin-top: 15px;
     cursor: pointer;
 `;
 
@@ -118,9 +133,10 @@ export const Box_main = styled.div`
     padding-bottom: 20px;
     padding-top: 20px;
     width: 100vw;
-    padding-left: -30px;
+    padding-left: -80px;
     background-image: url(${fundo});
-    padding-right: -30px;
+    padding-right: -80px;
+    align-items: center;
 `;
 
 export const SelectedFileImage = styled.img`
@@ -134,9 +150,11 @@ export const SelectedFileImage = styled.img`
 export const Botoes = styled.div`
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     width: 80%;  
     margin-top: 20px;
     align-items: center;
+ 
    
 `;
 
@@ -165,7 +183,8 @@ export const Des = styled.h1`
 `;
 
 export const SocialContainer = styled.div`
-  /* Estilos para o container social aqui */
+  display:flex;
+
 `;
 
 export const SocialLink = styled.a`
@@ -192,20 +211,19 @@ export const CustomFileInput = styled(StyledInput)`
   height: 100%;
   cursor: pointer;
   position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
 `;
 
 export const FileInputLabel = styled.span`
   display: inline-block;
   padding: 0.5rem 1rem;
-  background-color: #f2f2f2;
+  
   border: 1px solid #ccc;
-  border-radius: 4px;
+ 
+  border-radius: 10px;
+  width: 120px;
+  background-color: #4682B4;
+  font-weight: 400;
   cursor: pointer;
+  margin-bottom: 10px;
 `;
 
