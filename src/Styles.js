@@ -36,7 +36,7 @@ export const Dados = styled.button`
    border-radius: 10px;
     width: 130px;
     height: 35px;
-    background-color: #4682B4;
+    background-color: #696969;
     font-weight: 400;
     margin-left: 150px;
    
@@ -46,7 +46,7 @@ export const Com = styled.button`
     border-radius: 10px;
     width: 130px;
     height: 35px;
-    background-color: #4682B4;
+    background-color: #696969;
     font-weight: 400;
     margin-right: 150px;
     
@@ -150,7 +150,7 @@ export const Select = styled.input`
 export const Form = styled.form`
     display: flex;
     flex-direction: column; 
-    background-color: #B0E0E6;
+    background-color: #808080;
     border-radius: 40px;
     align-items: center;
     border: 2px solid #4682B4;
@@ -163,7 +163,7 @@ export const Form = styled.form`
 export const Form2 = styled.form`
     display: flex;
     flex-direction: column; 
-    background-color: #B0E0E6;
+    background-color: #808080;
     border-radius: 40px;
     align-items: center;
     border: 2px solid #4682B4;
@@ -188,7 +188,7 @@ export const Anexo = styled.form`
     align-items: center;
     text-align:center;
     justify-content: center;
-    background-color: #B0E0E6;
+    background-color: #808080;
     border-radius: 40px;
     border: 2px solid #4682B4;
     width: 20vw;
@@ -243,7 +243,7 @@ export const Botoes = styled.div`
 export const Botao = styled.button`
     border-radius: 5px;
     width: 80px;
-    background-color: #4682B4;
+    background-color: #696969;
     font-weight: 400;
 `;
 
@@ -303,7 +303,7 @@ export const FileInputLabel = styled.span`
  
   border-radius: 10px;
   width: 120px;
-  background-color: #4682B4;
+  background-color: #696969;
   font-weight: 400;
   cursor: pointer;
   margin-bottom: 10px;
