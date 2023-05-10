@@ -36,19 +36,22 @@ export const Dados = styled.button`
    border-radius: 10px;
     width: 130px;
     height: 35px;
-    background-color: #696969;
+    background-color: black;
     font-weight: 400;
-    margin-left: 150px;
-   
+    margin-top: 10 px;
+    font-weight: 400;
+    color: white; /* Cor do texto no botão */
 `;
 
 export const Com = styled.button`
     border-radius: 10px;
     width: 130px;
     height: 35px;
-    background-color: #696969;
+    background-color: black;
     font-weight: 400;
-    margin-right: 150px;
+    margin-top: 10px;
+    color: white; /* Cor do texto no botão */
+  
     
 `;
 export const Title = styled.h1`
@@ -75,8 +78,9 @@ export const Textura = styled.div`
 
 export const Seletores = styled.div`
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
     background-color: #E2E2E2; 
     padding-top: 20px;
@@ -153,7 +157,7 @@ export const Form = styled.form`
     background-color: #808080;
     border-radius: 40px;
     align-items: center;
-    border: 2px solid #4682B4;
+    border: 2px solid black;
     width: 20vw;
     max-width: 300px;
     justify-content: space-evenly;
@@ -166,7 +170,7 @@ export const Form2 = styled.form`
     background-color: #808080;
     border-radius: 40px;
     align-items: center;
-    border: 2px solid #4682B4;
+    border: 2px solid black;
     width: 20vw;
     max-width: 300px;
     justify-content: space-evenly;
@@ -190,7 +194,7 @@ export const Anexo = styled.form`
     justify-content: center;
     background-color: #808080;
     border-radius: 40px;
-    border: 2px solid #4682B4;
+    border: 2px solid black;
     width: 20vw;
     height: 300px;
    
@@ -202,7 +206,7 @@ export const StyledInput = styled.input`
     width: 60%;
     border-radius: 5px;
     width: 80px;
-    background-color: #4682B4;
+    background-color: black;
     font-weight: 400;
     margin-top: 15px;
     cursor: pointer;
@@ -243,15 +247,15 @@ export const Botoes = styled.div`
 export const Botao = styled.button`
     border-radius: 5px;
     width: 80px;
-    background-color: #696969;
-    font-weight: 400;
+    background-color: black;
+    font-weight: 500;
+    color: white; /* Cor do texto no botão */
 `;
 
 export const Rodape = styled.footer`
     display:flex;
     flex-direction: column;
     align-items: center;
-  
     height: 30vh;  
     justify-content: center;
     width: 100%;
@@ -303,8 +307,9 @@ export const FileInputLabel = styled.span`
  
   border-radius: 10px;
   width: 120px;
-  background-color: #696969;
+  background-color: black;
   font-weight: 400;
+  color: white; /* Cor do texto no botão */
   cursor: pointer;
   margin-bottom: 10px;
 `;
