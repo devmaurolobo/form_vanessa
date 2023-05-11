@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import fundo from './fundo.jpg';
+
 
 
 export const Higher = styled.div`
@@ -11,35 +11,39 @@ export const Higher = styled.div`
     width: 100%;
 `;
 
-export const Login = styled.div`
-    display: flex;
-    flex-direction: column; 
-    background-color: #B0E0E6;
-    align-items: center;
-    width: 100vw;
-    justify-content: space-evenly;
-    height: 100vh;
-`;
-
-export const Inputmenu = styled.div`
-    display: flex;
-    flex-direction: column; 
-    align-items: center;
-    width: 200px;
-    justify-content: space-evenly;
-    height: 200px;
-    background-color: white;
-`;
-
-
 export const Dados = styled.button`
    border-radius: 10px;
     width: 130px;
     height: 35px;
     background-color: black;
     font-weight: 400;
-    margin-top: 10 px;
+    margin-top: 20px;
     font-weight: 400;
+    cursor: pointer;
+    color: white; /* Cor do texto no botão */
+`;
+
+export const Sdados = styled.button`
+   border-radius: 10px;
+    width: 130px;
+    height: 35px;
+    background-color: black;
+    font-weight: 400;
+    margin-bottom: 10px;
+    font-weight: 400;
+    cursor: pointer;
+    color: white; /* Cor do texto no botão */
+`;
+
+export const Sdocumentos = styled.button`
+   border-radius: 10px;
+    width: 130px;
+    height: 35px;
+    background-color: black;
+    font-weight: 400;
+    margin-top: 10px;
+    font-weight: 400;
+    cursor: pointer;
     color: white; /* Cor do texto no botão */
 `;
 
@@ -50,6 +54,7 @@ export const Com = styled.button`
     background-color: black;
     font-weight: 400;
     margin-top: 10px;
+    cursor: pointer;
     color: white; /* Cor do texto no botão */
   
     
@@ -67,76 +72,91 @@ export const Photo = styled.img`
     margin-right: 20%;
 `;
 
-export const Menu = styled.img`
+export const Imgmenu = styled.img`
     width: 40px;
     margin-left: 5%;
+    cursor: pointer;
 `;
 
-export const Textura = styled.div`
-     background-image: url(${fundo});
-`;
+
 
 export const Seletores = styled.div`
     display: flex;
-    flex-direction: column;
     align-items: center;
+    flex-direction: column;
     justify-content: center;
-    width: 100%;
+    width: 90%;
+    height: 15vh;
     background-color: #E2E2E2; 
-    padding-top: 20px;
-    padding-bottom: 20px;
+    position: absolute;
+    left: 10%;
+    top: 440px;
 
 `;
 
 export const Tela = styled.div`
-   display: flex;
-   flex-direction: inline block;
+  
 
 `;
 
 export const Menu_esquerdo = styled.div`
    display: flex;
-   flex-direction: column;
-   width: 80vw;
-   height: 100vh;
+   justify-content: space-around;
+   width: 100vw;
+   height: 50vh;
    background-color: #808080;
 
 `;
 export const Teladados = styled.div`
-   display: flex;
-   text-align: center;
-   flex-direction: column;
-   justify-content: center;
-   width: 100vw;
-   margin-left: 400;
-   height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   height: 70%;
+   width: 80%;
+   position: absolute;
+   top: 100px;
+   left: 135px;
    background-color: #808080;
+   overflow: auto;
+   z-index: 1;
 `;
 
 export const Documento = styled.div`
     display: flex;
+    justify-content: space-evenly;
     align-items: center;
-   width: 100vw;
-   padding-left: 400;
-   height: 100vh;
-   justify-content: space-between;
-   flex-direction: wrap;
+    flex-wrap: center;
+    
+   height: 70%;
+   width: 60%;
+   position: absolute;
+   top: 100px;
+   left: 135px;
    background-color: #808080;
+   overflow: auto;
+   padding-left: 200px;
+   padding-right: 200px;
+   z-index: 1;
 `;
 
 export const Blocos = styled.div`
-   width: 50 px;
-   height: 50px;
+   width: 90px;
+   border-radius: 20px;
+   text-align: center;
+   padding: 30px;
+   height: 90px;
    background-color: white;
+   margin: 10px;
 `;
 
 export const Menu_direito = styled.div`
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   width: 80vw;
-   height: 100vh;
+    display: flex;
+    justify-content: center;
+   left: 0px;
+   width: 10vw;
+   height: 71vh;
    background-color: #C0C0C0;
+   overflow-y: auto;
 `;
 
 export const Description_2= styled.h1`
@@ -197,6 +217,7 @@ export const Anexo = styled.form`
     border: 2px solid black;
     width: 20vw;
     height: 300px;
+    top: 100px;
    
 `;
 
@@ -215,13 +236,14 @@ export const StyledInput = styled.input`
 export const Box_main = styled.div`
     display: flex;
     justify-content: space-around;
+    left: 100vw;
     height: 50vh; 
     padding-bottom: 20px;
     padding-top: 20px;
-    width: 80vw;
-    padding-left: -80px;
+    width: 90vw;
+    
     background-color: #E2E2E2;
-    padding-right: -80px;
+   
     align-items: center;
 `;
 
@@ -256,7 +278,7 @@ export const Rodape = styled.footer`
     display:flex;
     flex-direction: column;
     align-items: center;
-    height: 30vh;  
+    height: 20vh;  
     justify-content: center;
     width: 100%;
     background-color: #F5F5F5;

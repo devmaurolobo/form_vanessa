@@ -1,48 +1,53 @@
-import React, { useState, useEffect } from 'react';
-import { createGlobalStyle } from 'styled-components';
-import { Higher, Description, Form, Login, Inputmenu,Tela,Blocos, Menu_esquerdo,Menu_direito,Teladados,Documento, Form2, Textura, Com, Seletores, FileInputLabel, Menu, FileInputWrapper, CustomFileInput, Box_main, Description_2, Anexo, Select, Dados, Field, Botoes, Photo, StyledInput, Rodape, Botao, Des, SocialIcon, SocialContainer, SocialLink } from './Styles';
+
+import React, { useState, useEffect, useRef } from 'react';
+import { Higher, Description, Form,Tela,Blocos, Menu_esquerdo,Menu_direito,
+Teladados,Documento, Form2, Com, Seletores, FileInputLabel, FileInputWrapper,
+ CustomFileInput, Box_main, Description_2, Anexo, Select, Dados, Field, Botoes,Imgmenu,Sdocumentos,Sdados,
+ Photo, Rodape, Botao, Des, } from './Styles';
 import DragDropField from './DragDropField.jsx';
-{/*import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Menupag from './Menu2.jsx';*/}
+import { BrowserRouter as Router, Route, useHistory } from 'react-router-dom';
+import Menu from './Menupag';
 import logo from './logo.png';
 import menuIcon from './menu.jpg';
 import pdf from './pdf.jpg';
-import email from './email.jpg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-// Estilos globais
-const GlobalStyle = createGlobalStyle`
-  /* Outros estilos globais aqui */
-`;
 
 function App() {
-  const [count, setCount] = useState(0);
   const [showDados, setShowDados] = useState(false);
   const [showDocumentos, setShowDocumentos] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null);
   const [selectedFilesList, setSelectedFilesList] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [showForm2, setShowForm2] = useState(false);
-  const [showMenu, setShowMenu] = useState(false);
-  const [name, setName] = useState('');
-  const [emailmenu, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleFileDrop = (files) => {
-    setSelectedFile(files[0]);
-  };
+  const history = useHistory(); // Obtém o objeto de histórico de navegação
+  const teladadosRef = useRef(null);
 
   const handleShowDados = () => {
     setShowDados(!showDados);
     setShowDocumentos(false);
+
+    if (!showDados) {
+      handleScrollToForm(); // Chama a função para rolar o formulário para a visualização
+    }
   };
+ 
+  const handleScrollToForm = () => {
+    teladadosRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  
+
+  function handleFileDrop(files) {
+    setSelectedFile(files[0]);
+  }
 
   const handleShowDocumentos = () => {
     setShowDocumentos(!showDocumentos);
     setShowDados(false);
   };
-
+ 
 
   const handleChooseFile = (event) => {
     setSelectedFile(event.target.files[0]);
@@ -60,67 +65,13 @@ function App() {
     AOS.init();
   }, []);
 
-  useEffect(() => {
-    const handleDocumentClick = (event) => {
-      if (event.target.id !== 'menu-icon' && showMenu) {
-        setShowMenu(false);
-      }
-    };
-  
-    document.addEventListener('click', handleDocumentClick);
-  
-    return () => {
-      document.removeEventListener('click', handleDocumentClick);
-    };
-  }, [showMenu]);
-  
+  const handleOpenMenuPage = () => {
+    history.push('/menupag.jsx'); // Redireciona para a página "/menupag"
+  };
 
   return (
+    <Router>
       <>
-  {/*<BrowserRouter>
-      <Switch>
-        <Route exact path="/Menu2" component={Menupag} />
-      </Switch>
-    </BrowserRouter>*/}
-
-     {showMenu && (
-      <Login>
-        <Textura></Textura>
-        <Inputmenu>
-          <input
-            type="text"
-            placeholder="Nome"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-
-          <input
-            type="email"
-            placeholder="Email"
-            value={emailmenu}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-
-          <input
-            type="password"
-            placeholder="Senha"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-       
-           <button onClick={() => console.log('Enviar')}>Enviar</button>
-        </Inputmenu>
-      </Login>
-    )}
-
-{showDados && (
-        <Teladados>
-          <p>Name</p>
-          <p>Data</p>
-          <p>Endereço</p>
-        </Teladados>
-      )}
-
     {showDocumentos && (
       
         <Documento>
@@ -128,22 +79,40 @@ function App() {
           <Blocos>Documento 2</Blocos>
           <Blocos>Documento 3</Blocos>
           <Blocos>Documento 4</Blocos>
+          <Blocos>Documento 5</Blocos>
+          <Blocos>Documento 6</Blocos>
+          <Blocos>Documento 7</Blocos>
+          <Blocos>Documento 8</Blocos>
+          <Blocos>Documento 9</Blocos>
+          <Blocos>Documento 10</Blocos>
+          <Blocos>Documento 11</Blocos>
+          <Blocos>Documento 12</Blocos>
         </Documento>
      
       )}
     <Tela>
-      <Menu_direito>
-        <button onClick={handleShowDados}>Mostrar Dados</button>
-        <button onClick={handleShowDocumentos}>Meus Documentos</button>
-      </Menu_direito>
-      
-      <Menu_esquerdo>
-        <Higher>
-          <Photo src={logo} alt="Imagem Exemplo" />
-          <Menu id="menu-icon" src={menuIcon} alt="Menu" onClick={() => setShowMenu(!showMenu)} />
-
+      <Higher>
+            <Photo src={logo} alt="Imagem Exemplo" />
+            <Imgmenu id="menu-icon" src={menuIcon} alt="Menu" onClick={handleOpenMenuPage} />
         </Higher>
 
+      
+      <Menu_esquerdo>
+            <Menu_direito>
+              {showDados && (
+              <Teladados ref={teladadosRef}>
+                <div>
+                  <div>Nome Alegre de Souza</div>
+                  <div>Idade 00/00/1990</div>
+                  <div>Endereço Rua Geronimos</div>
+                  <button>Editar</button>
+                </div>
+              </Teladados>)}
+            <div>
+            <Sdados onClick={handleShowDados}>Mostrar Dados</Sdados>
+            <Sdocumentos onClick={handleShowDocumentos}>Meus Documentos</Sdocumentos>
+            </div>
+            </Menu_direito>
         <Box_main>
           <div>
           {showForm && (
@@ -169,7 +138,7 @@ function App() {
                       <CustomFileInput type="file" onChange={handleChooseFile} accept=".pdf" />
                       <FileInputLabel>Selecione o arquivo</FileInputLabel>
                       </FileInputWrapper>
-                    <Botao type="button" onClick={handleUploadFile} disabled={!selectedFile}>
+                    <Botao type="button" onClick={handleUploadFile} disabled={!selectedFile} >
                     Upload
                     </Botao>
                   </Botoes>
@@ -200,20 +169,20 @@ function App() {
           )}
           </div> 
         </Box_main>
-        <Seletores>
-        <Dados onClick={() => setShowForm(!showForm)}>Adicionar dados</Dados>
-        <Com onClick={() => setShowForm2(!showForm2)}>Adicionar destinatarios</Com>
-        </Seletores>
-        <Rodape>
-          <Des>Razão Social xxxxxx</Des>
-        </Rodape>
+       
       </Menu_esquerdo>
+      <Seletores>
+            <Dados onClick={() => setShowForm(!showForm)}>Adicionar mensagem</Dados>
+            <Com onClick={() => setShowForm2(!showForm2)}>Adicionar destino</Com>
+        </Seletores>
+      <Rodape>
+          <Des>Razão Social xxxxxx</Des>
+      </Rodape>
     </Tela>
-
-    
-
-    </>
-  );
-}
   
+    </>
+    </Router>
+  );
+
+}  
 export default App;
