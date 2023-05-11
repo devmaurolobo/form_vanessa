@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { Higher, Description, Form,Tela,Blocos, Menu_esquerdo,Menu_direito,
-Teladados,Documento, Form2, Com, Seletores, FileInputLabel, FileInputWrapper,
+Teladados,Documento, Form2, Com, Seletores, FileInputLabel, FileInputWrapper,Inf,Inf2,
  CustomFileInput, Box_main, Description_2, Anexo, Select, Dados, Field, Botoes,Imgmenu,Sdocumentos,Sdados,
  Photo, Rodape, Botao, Des, } from './Styles';
 import DragDropField from './DragDropField.jsx';
@@ -119,13 +119,19 @@ function App() {
             <>
               <Form data-aos="fade-up" data-aos-duration="1">
                 <Description>Comentarios</Description>
-                <Select placeholder="Nome" />
-                <Select placeholder="CPF" />
-                <Select placeholder="RG" />
-                <Select placeholder="Telefone" />
-                <Select placeholder="Endereço" />
-                <Select placeholder="Email" />
-              </Form>  </>
+                <Inf>NOME</Inf>
+                <Select placeholder="Seu nome" />
+                <Inf>CPF</Inf>
+                <Select placeholder="Seu CPF" />
+                <Inf>RG</Inf>
+                <Select placeholder="Seu RG" />
+                <Inf>Telefone</Inf>
+                <Select placeholder="Seu Telefone" />
+                <Inf>Endereço</Inf>
+                <Select placeholder="Seu Endereço" />
+                <Inf>Email</Inf>
+                <Select placeholder="Seu Email" />
+              </Form></>
           )}
           </div> 
           <div>
@@ -161,23 +167,30 @@ function App() {
           <div>             
           {showForm2 && (
             <>
-              <Form2 data-aos="fade-up" data-aos-duration="1">
-                <Description>Dados envio</Description>
-                <Select placeholder="Nome" />
-                <Select placeholder="Email" />
-              </Form2></>
+             <Form2 data-aos="fade-up" data-aos-duration="1">
+              <Description>Dados envio</Description>
+              <Inf2>Nome</Inf2>
+                <Select placeholder="Seu nome" />
+              
+              <Inf2>Email</Inf2>
+                <Select placeholder="Seu email" />
+             
+             </Form2></>
           )}
           </div> 
         </Box_main>
        
       </Menu_esquerdo>
+      <Rodape>
+          <Des>Razão Social xxxxxx</Des>
+    </Rodape> 
       <Seletores>
             <Dados onClick={() => setShowForm(!showForm)}>Adicionar mensagem</Dados>
             <Com onClick={() => setShowForm2(!showForm2)}>Adicionar destino</Com>
         </Seletores>
-      <Rodape>
+    <Rodape>
           <Des>Razão Social xxxxxx</Des>
-      </Rodape>
+    </Rodape> 
     </Tela>
   
     </>

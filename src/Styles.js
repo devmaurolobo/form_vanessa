@@ -12,7 +12,7 @@ export const Higher = styled.div`
 `;
 
 export const Dados = styled.button`
-   border-radius: 10px;
+    border-radius: 10px;
     width: 130px;
     height: 35px;
     background-color: black;
@@ -25,8 +25,8 @@ export const Dados = styled.button`
 
 export const Sdados = styled.button`
    border-radius: 10px;
-    width: 130px;
-    height: 35px;
+    width: 90%;
+    height: 10%;
     background-color: black;
     font-weight: 400;
     margin-bottom: 10px;
@@ -37,8 +37,8 @@ export const Sdados = styled.button`
 
 export const Sdocumentos = styled.button`
    border-radius: 10px;
-    width: 130px;
-    height: 35px;
+    width: 90%;
+    height: 10%;
     background-color: black;
     font-weight: 400;
     margin-top: 10px;
@@ -86,11 +86,12 @@ export const Seletores = styled.div`
     flex-direction: column;
     justify-content: center;
     width: 90%;
-    height: 15vh;
+    height: 18vh;
     background-color: #E2E2E2; 
     position: absolute;
-    left: 10%;
+    left: 11%;
     top: 440px;
+    z-index: 999;
 
 `;
 
@@ -152,6 +153,8 @@ export const Blocos = styled.div`
 export const Menu_direito = styled.div`
     display: flex;
     justify-content: center;
+    padding-left: 10px;
+    padding-top: 10px;
    left: 0px;
    width: 10vw;
    height: 71vh;
@@ -163,25 +166,46 @@ export const Description_2= styled.h1`
     font-size: 150%;
 `;
 export const Select = styled.input`
-    display: flex;
     border-radius: 5px;
-    margin-bottom: 10px;
     width: 50%;
-    height: 15px;
+    height: 10%;
     color:red;
+`;
+
+export const Inf = styled.h1`
+     display: flex;
+  font-size: 12px;
+  font-weight: 800;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: 50px;
+  text-align: left;
+
+`;
+
+export const Inf2 = styled.h1`
+     display: flex;
+  font-size: 12px;
+  font-weight: 800;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: 60px;
+  text-align: left;
+
 `;
 
 export const Form = styled.form`
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
+    justify-content: space-evenly; 
     background-color: #808080;
     border-radius: 40px;
     align-items: center;
     border: 2px solid black;
     width: 20vw;
-    max-width: 300px;
-    justify-content: space-evenly;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
+    height: 280px;
+    max-width: 200px;
 `;
 
 export const Form2 = styled.form`
@@ -193,15 +217,15 @@ export const Form2 = styled.form`
     border: 2px solid black;
     width: 20vw;
     max-width: 300px;
-    justify-content: space-evenly;
+    height: 150px;
     position: right;
     padding-bottom: 20px;
+    z-index: 0;
 `;
 export const Field = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
     width: 40vw;
     max-width: 300px;
 `;
@@ -278,6 +302,7 @@ export const Rodape = styled.footer`
     display:flex;
     flex-direction: column;
     align-items: center;
+    top: 500px;
     height: 20vh;  
     justify-content: center;
     width: 100%;
@@ -287,6 +312,7 @@ export const Rodape = styled.footer`
 
 export const Des = styled.h1`
     font-size: 20px;
+    margin-left: 120px;
   
 `;
 
