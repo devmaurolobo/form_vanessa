@@ -91,7 +91,7 @@ export const Seletores = styled.div`
     position: absolute;
     left: 11%;
     top: 440px;
-    z-index: 999;
+    z-index: 0;
 
 `;
 
