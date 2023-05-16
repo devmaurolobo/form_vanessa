@@ -5,9 +5,11 @@ import styled from 'styled-components';
 const DragDropFieldContainer = styled.div`
    border: 2px dashed #ccc;
   padding: 20px;
+  padding-bottom: 20px;
   text-align: center;
   background-color: white;
-  width: 50%;
+  width:30%;
+  height: 40%;
   border-radius: 20px;
 `;
 

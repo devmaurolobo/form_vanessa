@@ -1,52 +1,37 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import { Higher, Description, Form,Tela,Blocos, Menu_esquerdo,Menu_direito,
-Teladados,Documento, Form2, Com, Seletores, FileInputLabel, FileInputWrapper,Inf,Inf2,
- CustomFileInput, Box_main, Description_2, Anexo, Select, Dados, Field, Botoes,Imgmenu,Sdocumentos,Sdados,
+import { Higher, Description, Form,Tela,Blocos, Menu_esquerdo,Menu_direito, Form2, Com, Seletores, FileInputLabel, FileInputWrapper,Inf,Inf2,Login,
+ CustomFileInput, Box_main, Description_2, Anexo, Select, Dados, Field, Botoes,Sdocumentos,Sdados,Menuicon,Box,
  Photo, Rodape, Botao, Des, } from './Styles';
 import DragDropField from './DragDropField.jsx';
-import { BrowserRouter as Router, Route, useHistory } from 'react-router-dom';
-import Menu from './Menupag';
+import { Link, Outlet} from "react-router-dom";
 import logo from './logo.png';
-import menuIcon from './menu.jpg';
 import pdf from './pdf.jpg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 
 function App() {
-  const [showDados, setShowDados] = useState(false);
-  const [showDocumentos, setShowDocumentos] = useState(false);
+
   const [selectedFile, setSelectedFile] = useState(null);
   const [selectedFilesList, setSelectedFilesList] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [showForm2, setShowForm2] = useState(false);
-  const history = useHistory(); // Obtém o objeto de histórico de navegação
-  const teladadosRef = useRef(null);
 
-  const handleShowDados = () => {
-    setShowDados(!showDados);
-    setShowDocumentos(false);
-
-    if (!showDados) {
-      handleScrollToForm(); // Chama a função para rolar o formulário para a visualização
-    }
-  };
  
+
+  
   const handleScrollToForm = () => {
     teladadosRef.current.scrollIntoView({ behavior: 'smooth' });
   };
 
-  
+   
 
   function handleFileDrop(files) {
     setSelectedFile(files[0]);
   }
 
-  const handleShowDocumentos = () => {
-    setShowDocumentos(!showDocumentos);
-    setShowDados(false);
-  };
+ 
  
 
   const handleChooseFile = (event) => {
@@ -65,136 +50,100 @@ function App() {
     AOS.init();
   }, []);
 
-  const handleOpenMenuPage = () => {
-    history.push('/menupag.jsx'); // Redireciona para a página "/menupag"
-  };
 
   return (
-    <Router>
       <>
-    {showDocumentos && (
-      
-        <Documento>
-          <Blocos>Documento 1</Blocos>
-          <Blocos>Documento 2</Blocos>
-          <Blocos>Documento 3</Blocos>
-          <Blocos>Documento 4</Blocos>
-          <Blocos>Documento 5</Blocos>
-          <Blocos>Documento 6</Blocos>
-          <Blocos>Documento 7</Blocos>
-          <Blocos>Documento 8</Blocos>
-          <Blocos>Documento 9</Blocos>
-          <Blocos>Documento 10</Blocos>
-          <Blocos>Documento 11</Blocos>
-          <Blocos>Documento 12</Blocos>
-        </Documento>
-     
-      )}
+    
     <Tela>
       <Higher>
             <Photo src={logo} alt="Imagem Exemplo" />
-            <Imgmenu id="menu-icon" src={menuIcon} alt="Menu" onClick={handleOpenMenuPage} />
-        </Higher>
+              <Link to="/Menu">
+                <img src={Menuicon} alt="Menu" />
+              </Link>
+      </Higher>
 
-      
       <Menu_esquerdo>
-            <Menu_direito>
-              {showDados && (
-              <Teladados ref={teladadosRef}>
-                <div>
-                  <div>Nome Alegre de Souza</div>
-                  <div>Idade 00/00/1990</div>
-                  <div>Endereço Rua Geronimos</div>
-                  <button>Editar</button>
-                </div>
-              </Teladados>)}
+          <Menu_direito>
+          
             <div>
-            <Sdados onClick={handleShowDados}>Mostrar Dados</Sdados>
-            <Sdocumentos onClick={handleShowDocumentos}>Meus Documentos</Sdocumentos>
+              <Link to="/Dadospag">
+                <Sdados >Mostrar Dados</Sdados>
+              </Link>
+              <Link to="/Docpag">
+                <Sdocumentos >Meus Documentos</Sdocumentos>
+              </Link>
             </div>
-            </Menu_direito>
-        <Box_main>
-          <div>
-          {showForm && (
-            <>
-              <Form data-aos="fade-up" data-aos-duration="1">
-                <Description>Comentarios</Description>
-                <Inf>NOME</Inf>
-                <Select placeholder="Seu nome" />
-                <Inf>CPF</Inf>
-                <Select placeholder="Seu CPF" />
-                <Inf>RG</Inf>
-                <Select placeholder="Seu RG" />
-                <Inf>Telefone</Inf>
-                <Select placeholder="Seu Telefone" />
-                <Inf>Endereço</Inf>
-                <Select placeholder="Seu Endereço" />
-                <Inf>Email</Inf>
-                <Select placeholder="Seu Email" />
-              </Form></>
-          )}
-          </div> 
-          <div>
-            <Anexo id="uploadForm" encType="multipart/form-data" data-aos="fade-up" data-aos-duration="3000">
-                <Description_2>Arquivo</Description_2>
-                <Field>
-                  <DragDropField onFileDrop={handleFileDrop} selectedFile={selectedFile}/>
-                  <Botoes>
-                  <FileInputWrapper>
-                      <CustomFileInput type="file" onChange={handleChooseFile} accept=".pdf" />
-                      <FileInputLabel>Selecione o arquivo</FileInputLabel>
-                      </FileInputWrapper>
-                    <Botao type="button" onClick={handleUploadFile} disabled={!selectedFile} >
-                    Upload
-                    </Botao>
-                  </Botoes>
-                </Field>
-                <div>
-                  {selectedFilesList.map((file, index) => (
-                    <div key={index}>
-                      <p>{file.name}</p>
-                      {file.type === 'application/pdf' ? (
-                        <img src={pdf} alt="Ícone do arquivo PDF" />
-                      ) : (
-                        <img src="caminho-do-icone-padrao.png" alt="Ícone do arquivo" />
-                      )}
-                    </div>
-                  ))}
-                </div>
-          </Anexo>
+          </Menu_direito>
+        
+          <Box_main>
+            <Description_2>Adicionar documentos</Description_2>
+            <Box>
+              {showForm && (
+                <>
+                  <Form data-aos="fade-up" data-aos-duration="1">
+                    <Description>Enviar Mensagem</Description>
+                    <Inf>Assunto</Inf>
+                    <Select placeholder="Escreva o assunto" />
+                    <Inf>Escreva sua mensagem</Inf>
+                    <Select placeholder="Escreva sua mensagem" />
+                  </Form></>
+              )}
+            
+              <Anexo id="uploadForm" encType="multipart/form-data" data-aos="fade-up" data-aos-duration="3000">
+                  <Field>
+                    <DragDropField onFileDrop={handleFileDrop} selectedFile={selectedFile}/>
+                    <Botoes>
+                    <FileInputWrapper>
+                        <CustomFileInput type="file" onChange={handleChooseFile} accept=".pdf" />
+                        <FileInputLabel>Selecione o arquivo</FileInputLabel>
+                        </FileInputWrapper>
+                      <Botao type="button" onClick={handleUploadFile} disabled={!selectedFile} > Upload</Botao>
+                    </Botoes>
+                  </Field>
+                  <div>
+                    {selectedFilesList.map((file, index) => (
+                      <div key={index}>
+                        <p>{file.name}</p>
+                        {file.type === 'application/pdf' ? (
+                          <img src={pdf} alt="Ícone do arquivo PDF" />
+                        ) : (
+                          <img src="caminho-do-icone-padrao.png" alt="Ícone do arquivo" />
+                        )}
+                      </div>
+                    ))}
+                  </div>
+              </Anexo>
+           
+            {showForm2 && (
+              <>
+              <Form2 data-aos="fade-up" data-aos-duration="1">
+                <Description>Destinatarios</Description>
+                <Inf2>Nome</Inf2>
+                  <Select placeholder="Seu nome" />
+                
+                <Inf2>Email</Inf2>
+                  <Select placeholder="Seu email" />
 
-          </div>
-          <div>             
-          {showForm2 && (
-            <>
-             <Form2 data-aos="fade-up" data-aos-duration="1">
-              <Description>Dados envio</Description>
-              <Inf2>Nome</Inf2>
-                <Select placeholder="Seu nome" />
-              
-              <Inf2>Email</Inf2>
-                <Select placeholder="Seu email" />
-             
-             </Form2></>
-          )}
-          </div> 
-        </Box_main>
-       
-      </Menu_esquerdo>
-      <Rodape>
-          <Des>Razão Social xxxxxx</Des>
-    </Rodape> 
-      <Seletores>
+                  <Inf2>Whatssap</Inf2>
+                  <Select placeholder="Whatssap" />
+              </Form2></>
+            )}
+            </Box>
+            <Seletores>
             <Dados onClick={() => setShowForm(!showForm)}>Adicionar mensagem</Dados>
             <Com onClick={() => setShowForm2(!showForm2)}>Adicionar destino</Com>
-        </Seletores>
-    <Rodape>
-          <Des>Razão Social xxxxxx</Des>
-    </Rodape> 
+          </Seletores>
+
+          </Box_main>
+        
+      </Menu_esquerdo>
+    
+      <Rodape>
+            <Des>Razão Social xxxxxx</Des>
+      </Rodape> 
     </Tela>
   
     </>
-    </Router>
   );
 
 }  
