@@ -68,7 +68,8 @@ export const Title = styled.h1`
 `;
 
 export const Description = styled.h1`
-    font-size: 150%;
+    text-align: center;
+    font-size: 120%;
 `;
 export const Photo = styled.img`
     width: 100px;
@@ -177,13 +178,21 @@ export const Menu_direito = styled.div`
 `;
 
 export const Description_2= styled.h1`
-    font-size: 150%;
+    font-size: 15px;
     text-align: center;
 `;
 export const Select = styled.input`
     border-radius: 5px;
     width: 80%;
-    height: 10%;
+    height: 40%;
+
+`;
+export const Select_wp = styled.input`
+    border-radius: 5px;
+    width: 80%;
+    height: 40%;
+    
+
 `;
 
 export const Inf = styled.p`
@@ -218,8 +227,10 @@ export const Form = styled.form`
     border: 2px solid black;
     width: 20vw;
     padding-bottom: 10px;
-    height: 280px;
+    height: 200px;
     max-width: 200px;
+    padding-left: 15px;
+    font-weight: 500;
 `;
 
 export const Form2 = styled.form`
@@ -228,10 +239,12 @@ export const Form2 = styled.form`
     background-color: #808080;
     border-radius: 40px;
     align-items: center;
+    justify-content: center;
     border: 2px solid black;
-    width: 20vw;
+    width: 20%;
+    padding:20px;
     max-width: 300px;
-    height: 150px;
+    height: 160px;
     padding-bottom: 30px;
 
 `;

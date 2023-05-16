@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
+import GlobalStyles from './globalStyles';
 import { Higher,Tela, Menu_esquerdo,Menu_direito,Box_main,Sdados,Sdocumentos,Blocos,Caixa_blocos
-,Menuicon,
+,
  Photo, Rodape, Des, } from './Styles';
+ import Menuicon from './menu.jpg';
 import { Link, Outlet} from "react-router-dom";
 import logo from './logo.png';
 import 'aos/dist/aos.css';
@@ -14,12 +16,12 @@ function Docpag() {
 
   return (
       <>
-    
+    <GlobalStyles />
     <Tela>
       <Higher>
             <Photo src={logo} alt="Imagem Exemplo" />
               <Link to="/Menu">
-                <img src={Menuicon} alt="Menu" />
+              <img src={Menuicon} alt="Menu" style={{ width: "50px", height: "50px",marginRight: "40px" }} />
               </Link>
       </Higher>
 

@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
-import { Higher, Tela, Menu_esquerdo, Menu_direito, Box_main, Sdados, Sdocumentos, Menuicon, Photo, Rodape, Des } from './Styles';
+import GlobalStyles from './globalStyles';
+import { Higher, Tela, Menu_esquerdo, Menu_direito, Box_main, Sdados, Sdocumentos, Photo, Rodape, Des } from './Styles';
 import { Link } from "react-router-dom";
+import Menuicon from './menu.jpg';
 import logo from './logo.png';
 import 'aos/dist/aos.css';
 
@@ -17,11 +19,12 @@ function Dadospag() {
 
   return (
     <>
+    <GlobalStyles />
       <Tela>
         <Higher>
           <Photo src={logo} alt="Imagem Exemplo" />
           <Link to="/Menu">
-            <img src={Menuicon} alt="Menu" />
+          <img src={Menuicon} alt="Menu" style={{ width: "50px", height: "50px",marginRight: "40px" }} />
           </Link>
         </Higher>
 

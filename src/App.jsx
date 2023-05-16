@@ -1,14 +1,17 @@
 
 import React, { useState, useEffect, useRef } from 'react';
+import GlobalStyles from './globalStyles';
 import { Higher, Description, Form,Tela,Blocos, Menu_esquerdo,Menu_direito, Form2, Com, Seletores, FileInputLabel, FileInputWrapper,Inf,Inf2,Login,
- CustomFileInput, Box_main, Description_2, Anexo, Select, Dados, Field, Botoes,Sdocumentos,Sdados,Menuicon,Box,
+ CustomFileInput, Box_main, Description_2, Anexo, Select, Dados, Field, Botoes,Sdocumentos,Sdados,Box,Select_wp,
  Photo, Rodape, Botao, Des, } from './Styles';
 import DragDropField from './DragDropField.jsx';
 import { Link, Outlet} from "react-router-dom";
+import Menuicon from './menu.jpg';
 import logo from './logo.png';
 import pdf from './pdf.jpg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+
 
 
 function App() {
@@ -53,12 +56,14 @@ function App() {
 
   return (
       <>
+
+<GlobalStyles />
     
     <Tela>
       <Higher>
             <Photo src={logo} alt="Imagem Exemplo" />
               <Link to="/Menu">
-                <img src={Menuicon} alt="Menu" />
+                <img src={Menuicon} alt="Menu" style={{ width: "50px", height: "50px",marginRight: "40px" }} />
               </Link>
       </Higher>
 
@@ -76,17 +81,21 @@ function App() {
           </Menu_direito>
         
           <Box_main>
-            <Description_2>Adicionar documentos</Description_2>
+            <Description_2>Arquivo</Description_2>
             <Box>
               {showForm && (
                 <>
-                  <Form data-aos="fade-up" data-aos-duration="1">
-                    <Description>Enviar Mensagem</Description>
-                    <Inf>Assunto</Inf>
-                    <Select placeholder="Escreva o assunto" />
-                    <Inf>Escreva sua mensagem</Inf>
-                    <Select placeholder="Escreva sua mensagem" />
-                  </Form></>
+               <Form data-aos="fade-up" data-aos-duration="1">
+                  <Description>Enviar Mensagem</Description>
+                  <div>
+                    <label htmlFor="assunto">Assunto:</label>
+                    <Select id="assunto" placeholder="Escreva o assunto" />
+                  </div>
+                  <div>
+                    <label htmlFor="mensagem">Escreva sua mensagem:</label>
+                    <Select id="mensagem" placeholder="Escreva sua mensagem" />
+                  </div>
+                </Form></>
               )}
             
               <Anexo id="uploadForm" encType="multipart/form-data" data-aos="fade-up" data-aos-duration="3000">
@@ -116,17 +125,22 @@ function App() {
            
             {showForm2 && (
               <>
-              <Form2 data-aos="fade-up" data-aos-duration="1">
-                <Description>Destinatarios</Description>
-                <Inf2>Nome</Inf2>
-                  <Select placeholder="Seu nome" />
-                
-                <Inf2>Email</Inf2>
-                  <Select placeholder="Seu email" />
-
-                  <Inf2>Whatssap</Inf2>
-                  <Select placeholder="Whatssap" />
-              </Form2></>
+           <Form2 data-aos="fade-up" data-aos-duration="1">
+              <Description>Destinatários</Description>
+              <div>
+                <label htmlFor="nome">Nome:</label>
+                <Select id="nome" placeholder="Seu nome" />
+              </div>
+              <div>
+                <label htmlFor="email">Email:</label>
+                <Select id="email" placeholder="Seu email" />
+              </div>
+              <div>
+                <label htmlFor="whatsapp">WhatsApp:</label>
+                <Select_wp id="whatsapp" type="text" placeholder="WhatsApp" />
+              </div >
+            </Form2>
+            </>
             )}
             </Box>
             <Seletores>
