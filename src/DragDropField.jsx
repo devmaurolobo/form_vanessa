@@ -4,14 +4,21 @@ import styled from 'styled-components';
 
 const DragDropFieldContainer = styled.div`
    border: 2px dashed #ccc;
-  padding: 20px;
-  padding-bottom: 20px;
-  text-align: center;
+   font-size:12px;
+  text-align: top;
+  padding-top: 15px;
   background-color: white;
-  width:30%;
-  height: 40%;
+  width: 80px;
+  height: 120px;
   border-radius: 20px;
+  @media (max-width: 768px) {
+    width: 60px;
+    height: 50px;
+   
+    font-size:8px;
+  }
 `;
+
 
 const DragDropFieldText = styled.p`
   /* Resto do seu código */

@@ -1,16 +1,61 @@
 
 import React, { useState, useEffect, useRef } from 'react';
+import styled from 'styled-components';
 import GlobalStyles from './globalStyles';
 import { Higher, Description, Form,Tela,Blocos, Menu_esquerdo,Menu_direito, Form2, Com, Seletores, FileInputLabel, FileInputWrapper,Inf,Inf2,Login,
- CustomFileInput, Box_main, Description_2, Anexo, Select, Dados, Field, Botoes,Sdocumentos,Sdados,Box,Select_wp,
- Photo, Rodape, Botao, Des, } from './Styles';
+ CustomFileInput, Box_main, Description_2, Anexo, Select, Dados, Field, Botoes,Sdocumentos,Sdados,Box,Select_wp,Menuselect,Form1
+ ,Photo, Rodape, Botao, Des, } from './Styles';
 import DragDropField from './DragDropField.jsx';
 import { Link, Outlet} from "react-router-dom";
 import Menuicon from './menu.jpg';
+import Menulist from './bottow.png';
 import logo from './logo.png';
 import pdf from './pdf.jpg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+
+const MenuIcon2 = styled.button`
+  display: none;
+    background-color: black;
+    font-weight: 400;
+    
+    cursor: pointer;
+    color: white; /* Cor do texto no botão */
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    border-radius: 10px;
+    display: flex;
+    width: 70px;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
+    background-color: black;
+    font-weight: 400;
+    cursor: pointer;
+    color: white; /* Cor do texto no botão */
+    }
+`;
+
+const MenuDireito = styled.div`
+  display: flex;
+  justify-content: center;
+  height: 80vh;
+  background-color: #C0C0C0;
+
+
+     @media (max-width: 768px) {
+      max-height: 0;
+      transition: max-height 0.3s ease;
+      width: 70px;;
+      height: auto;
+      height: 80vh;
+      overflow: hidden;
+  }
+  &.show {
+    max-height: 80vh;
+  }
+`;
 
 
 
@@ -20,9 +65,12 @@ function App() {
   const [selectedFilesList, setSelectedFilesList] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [showForm2, setShowForm2] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
- 
-
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+  
   
   const handleScrollToForm = () => {
     teladadosRef.current.scrollIntoView({ behavior: 'smooth' });
@@ -68,18 +116,27 @@ function App() {
       </Higher>
 
       <Menu_esquerdo>
-          <Menu_direito>
-          
-            <div>
-              <Link to="/Dadospag">
-                <Sdados >Mostrar Dados</Sdados>
-              </Link>
-              <Link to="/Docpag">
-                <Sdocumentos >Meus Documentos</Sdocumentos>
-              </Link>
-            </div>
-          </Menu_direito>
-        
+          <Menuselect>
+          <MenuIcon2
+              onClick={toggleMenu}
+            > Exibir Menu
+            </MenuIcon2>
+            <MenuDireito className={isMenuOpen ? "show" : ""}>   
+
+            
+              <div>
+                <Dados onClick={() => setShowForm(!showForm)}>Adicionar mensagem</Dados>
+                <Com onClick={() => setShowForm2(!showForm2)}>Adicionar destino</Com>
+                <Link to="/Dadospag">
+                  <Sdados >Mostrar Dados</Sdados>
+                </Link>
+                <Link to="/Docpag">
+                  <Sdocumentos >Meus Documentos</Sdocumentos>
+                </Link>
+              </div>
+               
+            </MenuDireito>
+          </Menuselect>
           <Box_main>
             <Description_2>Arquivo</Description_2>
             <Box>
@@ -87,10 +144,10 @@ function App() {
                 <>
                <Form data-aos="fade-up" data-aos-duration="1">
                   <Description>Enviar Mensagem</Description>
-                  <div>
+                  <Form1>
                     <label htmlFor="assunto">Assunto:</label>
                     <Select id="assunto" placeholder="Escreva o assunto" />
-                  </div>
+                  </Form1>
                   <div>
                     <label htmlFor="mensagem">Escreva sua mensagem:</label>
                     <Select id="mensagem" placeholder="Escreva sua mensagem" />
@@ -143,10 +200,7 @@ function App() {
             </>
             )}
             </Box>
-            <Seletores>
-            <Dados onClick={() => setShowForm(!showForm)}>Adicionar mensagem</Dados>
-            <Com onClick={() => setShowForm2(!showForm2)}>Adicionar destino</Com>
-          </Seletores>
+         
 
           </Box_main>
         
