@@ -8,7 +8,7 @@ import { Higher, Description, Form,Tela,Blocos, Menu_esquerdo,Menu_direito, Form
 import DragDropField from './DragDropField.jsx';
 import { Link, Outlet} from "react-router-dom";
 import Menuicon from './menu.jpg';
-import Menulist from './bottow.png';
+import Voltar from './seta.jpg';
 import logo from './logo.png';
 import pdf from './pdf.jpg';
 import AOS from 'aos';
@@ -16,7 +16,7 @@ import 'aos/dist/aos.css';
 
 const MenuIcon2 = styled.button`
   display: none;
-    background-color: black;
+    background-color: #523333;
     font-weight: 400;
     
     cursor: pointer;
@@ -109,10 +109,14 @@ function App() {
     
     <Tela>
       <Higher>
-            <Photo src={logo} alt="Imagem Exemplo" />
-              <Link to="/Menu">
-                <img src={Menuicon} alt="Menu" style={{ width: "50px", height: "50px",marginRight: "40px" }} />
-              </Link>
+          <Link to="/">
+          <img src={Voltar} alt="Menu" style={{ width: "70%",display: "none", backgroundColor: "transparent",}} />
+          </Link>
+        <Photo src={logo} alt="Imagem Exemplo" />
+          <Link to="/Menu">
+            <img src={Menuicon} alt="Menu" style={{ width: "50px", height: "50px",marginRight: "40px" }} />
+          </Link>
+          
       </Higher>
 
       <Menu_esquerdo>
@@ -126,7 +130,7 @@ function App() {
             
               <div>
                 <Dados onClick={() => setShowForm(!showForm)}>Adicionar mensagem</Dados>
-                <Com onClick={() => setShowForm2(!showForm2)}>Adicionar destino</Com>
+                <Com onClick={() => setShowForm2(!showForm2)}>Adicionar destinatario</Com>
                 <Link to="/Dadospag">
                   <Sdados >Mostrar Dados</Sdados>
                 </Link>
@@ -180,25 +184,25 @@ function App() {
                   </div>
               </Anexo>
            
-            {showForm2 && (
-              <>
-           <Form2 data-aos="fade-up" data-aos-duration="1">
-              <Description>Destinatários</Description>
-              <div>
-                <label htmlFor="nome">Nome:</label>
-                <Select id="nome" placeholder="Seu nome" />
-              </div>
-              <div>
-                <label htmlFor="email">Email:</label>
-                <Select id="email" placeholder="Seu email" />
-              </div>
-              <div>
-                <label htmlFor="whatsapp">WhatsApp:</label>
-                <Select_wp id="whatsapp" type="text" placeholder="WhatsApp" />
-              </div >
-            </Form2>
-            </>
-            )}
+                {showForm2 && (
+                    <>
+                <Form2 data-aos="fade-up" data-aos-duration="1">
+                    <Description>Destinatários</Description>
+                    <div>
+                      <label htmlFor="nome">Nome:</label>
+                      <Select id="nome" placeholder="Seu nome" />
+                    </div>
+                    <div>
+                      <label htmlFor="email">Email:</label>
+                      <Select id="email" placeholder="Seu email" />
+                    </div>
+                    <div>
+                      <label htmlFor="whatsapp">WhatsApp:</label>
+                      <Select_wp id="whatsapp" type="text" placeholder="WhatsApp" />
+                    </div >
+                  </Form2>
+                  </>
+                  )}
             </Box>
          
 

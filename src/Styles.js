@@ -3,6 +3,7 @@ import Menu from './menu.jpg';
 
 
 
+
 export const Higher = styled.div`
     display: flex;
     align-items: center;
@@ -10,6 +11,9 @@ export const Higher = styled.div`
     background-color: #F5F5F5;
     height: 15vh;   
     width: 100%;
+    @media (max-width: 768px) {
+        height: 10vh;  
+  }
 `;
 
 export const Dados = styled.button`
@@ -108,7 +112,12 @@ export const Description = styled.h1`
 `;
 export const Photo = styled.img`
     width: 100px;
-    margin-right: 30%;
+    position: absolute;
+    left: 30px;
+    @media (max-width: 768px) {
+      left: 20px;
+      width: 80px;
+    }
 `;
 
 export const Menuicon = styled.img`
@@ -171,9 +180,8 @@ export const Menuselect = styled.div`
 export const Box = styled.div`
    display: flex;
    flex-direction: row;
-   justify-content: center;
-   align-items: center;
-   justify-content: space-around;
+  
+  
    width: 100%;
 
    @media (max-width: 768px) {
@@ -214,17 +222,18 @@ export const Blocos = styled.div`
 
 export const Caixa_blocos = styled.div`
     display: flex;
-    flex-direction: wrap;
+    flex-wrap: wrap;
     justify-content: space-around;
     width: 100%;
 `;
+
 
 export const Menu_direito = styled.div`
     display: flex;
     justify-content: center;
     width: 15%;
     height: 80vh;
-     background-color: #C0C0C0;
+    background-color: #C0C0C0;
 
 
      @media (max-width: 768px) {
@@ -236,9 +245,15 @@ export const Menu_direito = styled.div`
 `;
 
 export const Description_2= styled.h1`
+    position: absolute;
+    top: 90px;
     font-size: 25px;
     text-align: center;
-    margin-bottom: 90px;
+    left: 53%;
+    @media (max-width: 768px) {
+        position: absolute;
+        top: 90px;
+  }
 `;
 export const Select = styled.input`
     border-radius: 5px;
@@ -301,12 +316,16 @@ export const Form = styled.form`
     max-width: 200px;
     padding-left: 15px;
     font-weight: 500;
+    position: absolute;
+    top: 160px;
+    left: 20%;
     @media (max-width: 768px) {
-    margin-bottom: 80px;
 
-    flex-direction: row;
-    height: 80px;
-    width: 250px;
+    width: 175px;
+    padding-bottom: 10px;
+    height: 150px;
+    top: 20%;
+    left: 35%;
     } 
 `;
 
@@ -326,17 +345,20 @@ export const Form2 = styled.form`
     align-items: center;
     justify-content: center;
     border: 2px solid black;
-    width: 20%;
+    width: 150px;
     padding:20px;
     max-width: 300px;
     height: 160px;
-    padding-bottom: 30px;
+    position: absolute;
+    top: 160px;
+    left: 75%;
     @media (max-width: 768px) {
-    margin-top: 80px;
-
-    flex-direction: row;
-    height: 30px;
-    width: 180px;
+   
+    top: 80%;
+    left: 35%;
+    width: 150px;
+   
+    height: 100px;
     } 
 
 `;
@@ -361,14 +383,19 @@ export const Anexo = styled.form`
     background-color: #808080;
     border-radius: 20px;
     border: 2px solid black;
-    width: 160px;;
+    width: 220px;;
     height: 280px;
-    position: center;
+    position: absolute;
+    top: 160px;
+    left: 48%;
     @media (max-width: 768px) {
 
     flex-direction: row;
-    height: 80px;
-    width: 220px;
+    width: 190px;
+   
+   height: 150px;
+    top: 50%;
+    left: 35%;
   } 
    
 `;
@@ -417,7 +444,6 @@ export const Botoes = styled.div`
     margin-top: 20px;
     align-items: center;
     @media (max-width: 768px) {
-        flex-direction: row;
         margin-top: 10px;
      
     }

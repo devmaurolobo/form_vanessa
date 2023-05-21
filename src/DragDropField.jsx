@@ -8,12 +8,12 @@ const DragDropFieldContainer = styled.div`
   text-align: top;
   padding-top: 15px;
   background-color: white;
-  width: 80px;
+  width: 150px;
   height: 120px;
   border-radius: 20px;
   @media (max-width: 768px) {
-    width: 60px;
-    height: 50px;
+    width: 80px;
+    height: 80px;
    
     font-size:8px;
   }

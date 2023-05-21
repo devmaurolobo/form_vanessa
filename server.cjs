@@ -20,7 +20,7 @@ var options = {
   'hostname': 'app.plugsign.com.br',
   'path': '/api/files/upload',
   'headers': {
-    'Authorization': 'Bearer {{Lu0yItNgbGzN5cWlBBf8wNUEM1RrRSL1u5GJ2YKUwSUiEb49MdFJ1rUPFy99ZAOYbctcCvMld2lXcdccoQVANyXcTKUwgBltw4aDThgNRBJ5Bt92LM7hunwxm5lmnhygsjz9q75zrhXail7JDhqwU1XhYo2LkJmjiSZFmFizZikV0FRiqmabsBjzstQegQEzE3oL3zAsRiaQLNks7BWuMDQVbEQMikU7HUX7dcYql4trIm0LIwhSnnhpD6JJsGmEIlg61B1KhWBt0MH0lv03mXgrfYzKOkQ5c4DQjPykdLvBxh5rfdrfX0Ur58ga3soXKK3DeOnRa0tm0S3Fb}}',
+    'Authorization': 'Bearer {{Y8FzM715u1x83jsKGrYjg3SgN6ZlyTVxhB0lXnz96b4Otvk97ACElANyGXNIxflz2NwXoAsRpibHZz6TrSPqOoCSpfXYrsIi1wIhtMsVNZBZSTCAiyYCtkXcgdWSfXm5xeWG5jDCpWb7gT4TLmbxyKQ3IsWxLL0A8NiP2elJmBEgfNcWq2TYWzAKdWlHAQ6sqjvx8IwZAqatECEXi2fcpcE7WL1gd4ILhKlzrlGkoczdc9zWdbYt1hQtYLd0acQ8aWArksyvnohvFLjoCYGGYpvPyddF8G9pVVOmdoMHmE63DoyKsZmVppGE1RnEeAvaCuHkiEOXzybtezYXB}}',
     'Accept': 'application/json'
   },
   'maxRedirects': 20

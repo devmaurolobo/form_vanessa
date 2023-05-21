@@ -6,6 +6,7 @@ import { Higher,Tela, Menu_esquerdo,Menu_direito,Box_main,Sdados,Sdocumentos,Blo
  import Menuicon from './menu.jpg';
 import { Link, Outlet} from "react-router-dom";
 import logo from './logo.png';
+import Voltar from './seta.jpg';
 import 'aos/dist/aos.css';
 
 
@@ -18,11 +19,15 @@ function Docpag() {
       <>
     <GlobalStyles />
     <Tela>
-      <Higher>
-            <Photo src={logo} alt="Imagem Exemplo" />
-              <Link to="/Menu">
-              <img src={Menuicon} alt="Menu" style={{ width: "50px", height: "50px",marginRight: "40px" }} />
-              </Link>
+    <Higher>
+          <Link to="/">
+            <img src={Voltar} alt="Menu" style={{ width: "10%", backgroundColor: "transparent"}} />
+          </Link>
+        <Photo src={logo} alt="Imagem Exemplo" />
+          <Link to="/Menu">
+            <img src={Menuicon} alt="Menu" style={{ width: "50px", height: "50px",marginRight: "40px" }} />
+          </Link>
+          
       </Higher>
 
       <Menu_esquerdo>
