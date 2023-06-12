@@ -454,7 +454,6 @@ export const Botao = styled.button`
     width: 80px;
     background-color: black;
     font-weight: 500;
-    cursor: pointer;
     color: white; /* Cor do texto no botão */
     @media (max-width: 768px) {
     margin-bottom: 10px;
@@ -498,17 +497,18 @@ export const FileInputWrapper = styled.div`
 `;
 
 export const CustomFileInput = styled(StyledInput)`
-
-  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
   opacity: 0;
-  height: 80%;
-  margin-bottom: 40px;
+  width: 100%;
+  height: 100%;
   cursor: pointer;
 `;
 
-export const FileInputLabel = styled.div`
+export const FileInputLabel = styled.span`
   display: inline-block;
-  
+  padding: 0.5rem 1rem;
   font-size: 80%;
   border: 1px solid #ccc;
   border-radius: 10px;
@@ -516,7 +516,7 @@ export const FileInputLabel = styled.div`
   background-color: black;
   font-weight: 400;
   color: white; /* Cor do texto no botão */
-
+  cursor: pointer;
   margin-bottom: 10px;
 
   @media (max-width: 768px) {

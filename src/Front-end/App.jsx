@@ -15,12 +15,6 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import axios from 'axios';
 
-const api = axios.create({
-  baseURL: 'http://localhost:3000'
-});
-
-
-
 const MenuIcon2 = styled.button`
   display: none;
     background-color: #523333;
@@ -73,23 +67,25 @@ function App() {
   const [showForm, setShowForm] = useState(false);
   const [showForm2, setShowForm2] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [emailValue, setEmailValue] = useState("");
+  
 
-  const handleEmailChange = (event) => {
-    setEmailValue(event.target.value);
-    console.log(event.target.value); // Adicionar esta linha
-  };
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
   
+  
+  const handleScrollToForm = () => {
+    teladadosRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
+
+   
 
   function handleFileDrop(files) {
     setSelectedFile(files[0]);
   }
 
-
+ 
  
 
   const handleChooseFile = (event) => {
@@ -101,35 +97,23 @@ function App() {
       const formData = new FormData();
       formData.append('file', selectedFile);
   
-      api.post('/start-upload', formData)
-        .then((response) => {
-          console.log(response.data);
-          // Arquivo enviado com sucesso!
+      fetch('http://localhost:3000/save-file', {
+        method: 'POST',
+        body: formData,
+      })
+        .then(response => response.json())
+        .then(result => {
+          if (result.success) {
+            setSelectedFilesList([...selectedFilesList, selectedFile]);
+          } else {
+            console.log('Erro ao salvar o arquivo');
+          }
         })
-        .catch((error) => {
-          console.error('Erro ao enviar o arquivo', error);
+        .catch(error => {
+          console.log('Erro ao enviar o arquivo', error);
         });
     }
   };
-  
-  const handleEnviarMsg = () => {
-    const requestData = { email: emailValue }; // Create the request data object
-  
-    api.post('/start-envio', requestData) // Pass the request data as the second argument
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.error('Erro ao enviar a msg', error);
-      });
-  };
-  
-
-
-
-
-  
-  
   useEffect(() => {
     AOS.init();
   }, []);
@@ -192,20 +176,18 @@ function App() {
                 </Form></>
               )}
             
-              <Anexo  data-aos="fade-up" data-aos-duration="3000">
+              <Anexo id="uploadForm" encType="multipart/form-data" data-aos="fade-up" data-aos-duration="3000">
                   <Field>
                     <DragDropField onFileDrop={handleFileDrop} selectedFile={selectedFile}/>
-                    
                     <Botoes>
-                        
-                         
-                          <FileInputLabel >
-                             <CustomFileInput type="file" onChange={handleChooseFile} accept=".pdf" ></CustomFileInput>
-                          </FileInputLabel>
-                      
-                          <Botao type="button" onClick={handleUploadFile} >
-                            Iniciar
-                          </Botao>
+                    <FileInputWrapper>
+                        <CustomFileInput type="file" onChange={handleChooseFile} accept=".pdf" />
+                        <FileInputLabel>Selecione o arquivo</FileInputLabel>
+                        </FileInputWrapper>
+                        <Botao type="button" onClick={handleUploadFile} >
+                          Upload
+                        </Botao>
+
                     </Botoes>
                   </Field>
                   <div>
@@ -231,25 +213,13 @@ function App() {
                       <Select id="nome" placeholder="Seu nome" />
                     </div>
                     <div>
-                    <input
-                     
-                     id="email"
-                     type="text"
-                     value={emailValue}
-                     onChange={handleEmailChange}
-                     placeholder="Seu email"
-                   />
-                  
-
+                      <label htmlFor="email">Email:</label>
+                      <Select id="email" placeholder="Seu email" />
                     </div>
                     <div>
                       <label htmlFor="whatsapp">WhatsApp:</label>
                       <Select_wp id="whatsapp" type="text" placeholder="WhatsApp" />
                     </div >
-                    <Botao type="button" onClick={handleEnviarMsg}>
-                      Enviar
-                    </Botao>
-
                   </Form2>
                   </>
                   )}
